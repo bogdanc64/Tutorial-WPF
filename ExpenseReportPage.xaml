@@ -24,7 +24,7 @@
        
         
         <Grid.Background>
-            <ImageBrush ImageSource="watermark.png" />
+            <ImageBrush ImageSource="background.jpg" Stretch="UniformToFill" />
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="230" />

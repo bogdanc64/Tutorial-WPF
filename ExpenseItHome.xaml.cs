@@ -13,7 +13,6 @@ namespace ExpenseIt
             InitializeComponent();
         }
 
-   
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // View Expense Report
@@ -21,6 +20,15 @@ namespace ExpenseIt
             this.NavigationService.Navigate(expenseReportPage);
 
         }
-       
+
+        private void peopleListBox_PreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var item = (sender as ListBox).SelectedItem;
+            if (item != null)
+            {
+                this.DataContext = this.peopleListBox.SelectedItem;
+            }
+        }
+
     }
 }

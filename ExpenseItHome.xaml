@@ -11,7 +11,7 @@
     <Grid Margin="10,0,10,10">
        
         <Grid.Resources>
-           
+            
             <!-- Expense Report Data -->
             <XmlDataProvider x:Key="ExpenseDataSource" XPath="Expenses">
                 <x:XData>
@@ -44,13 +44,14 @@
             </DataTemplate>
             
         </Grid.Resources>
-      
+        
         <Grid.Background>
-            <ImageBrush ImageSource="watermark.png"  />
+            <ImageBrush ImageSource="background.jpg" Stretch="UniformToFill"  />
         </Grid.Background>
        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="230" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="130" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         
@@ -60,24 +61,29 @@
             <RowDefinition />
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-     
+
+        <Label Grid.Column="1" Style="{StaticResource headerTextStyle}" Content="{Binding XPath=@Name}"></Label>
+
         <!-- People list -->
        
-        <Label Grid.Column="1" Style="{StaticResource headerTextStyle}" >
+        <Label Grid.Column="2" Style="{StaticResource headerTextStyle}" >
             View Expense Report
         </Label>
         
-        <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource listHeaderStyle}">
+        <Border Grid.Column="2" Grid.Row="1" Style="{StaticResource listHeaderStyle}">
             <Label Style="{StaticResource listHeaderTextStyle}">Names</Label>
         </Border>
        
-        <ListBox Name="peopleListBox" Grid.Column="1" Grid.Row="2" 
+        <ListBox Name="peopleListBox" Grid.Column="2" Grid.Row="2" 
                  ItemsSource="{Binding Source={StaticResource ExpenseDataSource}, XPath=Person}"
-                 ItemTemplate="{StaticResource nameItemTemplate}">
+                 ItemTemplate="{StaticResource nameItemTemplate}"
+                 PreviewMouseLeftButtonUp="peopleListBox_PreviewMouseLeftButtonUp"
+                   
+                 >
         </ListBox>
      
         <!-- View report button -->
-        <Button Grid.Column="1" Grid.Row="3" Click="Button_Click" Style="{StaticResource buttonStyle}">View</Button>
+        <Button Grid.Column="2" Grid.Row="3" Click="Button_Click" Style="{StaticResource buttonStyle}">View</Button>
    
 
     </Grid>
