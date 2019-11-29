@@ -62,7 +62,10 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="1" Style="{StaticResource headerTextStyle}" Content="{Binding XPath=@Name}"></Label>
+        <Label Grid.Column="1" 
+               Style="{StaticResource headerTextStyle}" 
+               Content="{Binding XPath=@Name}">
+        </Label>
 
         <!-- People list -->
        

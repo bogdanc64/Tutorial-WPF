@@ -29,6 +29,5 @@ namespace ExpenseIt
                 this.DataContext = this.peopleListBox.SelectedItem;
             }
         }
-
     }
 }
