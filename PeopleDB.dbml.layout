@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PeopleDB">
+  <DataContextMoniker Name="/PeopleDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="407c04fe-5ca1-4006-a9f4-b1daca5c4ce7" absoluteBounds="4, 2.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PeopleDBDataContext/Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e7a14b7-a683-4174-88ca-03b0fe5ff31e" absoluteBounds="4.015, 2.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5d70dcf0-77e6-4dfe-9d4b-46104834f9e1" absoluteBounds="6.625, 2.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PeopleDBDataContext/Expense" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c1761ca5-1307-4967-838e-4d46311f0b35" absoluteBounds="6.64, 2.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6 : 2.91429768880208); (6.625 : 2.91429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PeopleDBDataContext/Employee/Employee_Expense" />
+      <nodes>
+        <classShapeMoniker Id="407c04fe-5ca1-4006-a9f4-b1daca5c4ce7" />
+        <classShapeMoniker Id="5d70dcf0-77e6-4dfe-9d4b-46104834f9e1" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

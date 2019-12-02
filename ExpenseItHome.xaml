@@ -40,7 +40,7 @@
             
             <!-- Name item template -->
             <DataTemplate x:Key="nameItemTemplate">
-                <Label Content="{Binding XPath=@Name}"/>
+                <Label Content="{Binding FirstName}"/>
             </DataTemplate>
             
         </Grid.Resources>
@@ -62,7 +62,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="1" Style="{StaticResource headerTextStyle}" Content="{Binding XPath=@Name}"></Label>
+        <Label Name="TitluLabel" Grid.Column="1" Style="{StaticResource headerTextStyle}" Content="{Binding FirstName}"></Label>
 
         <!-- People list -->
        
@@ -73,13 +73,13 @@
         <Border Grid.Column="2" Grid.Row="1" Style="{StaticResource listHeaderStyle}">
             <Label Style="{StaticResource listHeaderTextStyle}">Names</Label>
         </Border>
-       
-        <ListBox Name="peopleListBox" Grid.Column="2" Grid.Row="2" 
-                 ItemsSource="{Binding Source={StaticResource ExpenseDataSource}, XPath=Person}"
+
+        <ListBox Name="peopleListBox" Grid.Column="2" Grid.Row="2"
+                 ItemsSource="{Binding Tables[0]}"
                  ItemTemplate="{StaticResource nameItemTemplate}"
-                 PreviewMouseLeftButtonUp="peopleListBox_PreviewMouseLeftButtonUp"
-                   
-                 >
+                 SelectionChanged="PeopleListBox_GotFocus">
+
+
         </ListBox>
      
         <!-- View report button -->

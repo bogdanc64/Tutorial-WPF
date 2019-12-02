@@ -1,5 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ExpenseIt
 {
@@ -11,6 +13,23 @@ namespace ExpenseIt
         public ExpenseItHome()
         {
             InitializeComponent();
+            fillListBox();
+        }
+        public void fillListBox()
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PeopleDB;Integrated Security=True;Pooling=False");
+            SqlCommand cmd = new SqlCommand("select FirstName, LastName, Department from Employees", con);
+            SqlDataAdapter ad = new SqlDataAdapter(cmd);
+            con.Open();
+            DataSet ds = new DataSet();
+            ad.Fill(ds,"Employees");
+            peopleListBox.DataContext= ds;
+            con.Close();
+        }
+        private void PeopleListBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = this.peopleListBox.SelectedItem;
+            Variabile.indexListBox = peopleListBox.SelectedIndex;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -21,14 +40,9 @@ namespace ExpenseIt
 
         }
 
-        private void peopleListBox_PreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            var item = (sender as ListBox).SelectedItem;
-            if (item != null)
-            {
-                this.DataContext = this.peopleListBox.SelectedItem;
-            }
-        }
-
+    }
+    public static class Variabile
+    {
+        public static int indexListBox;
     }
 }
