@@ -17,7 +17,7 @@ namespace ExpenseIt
         }
         public void fillListBox()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PeopleDB;Integrated Security=True;Pooling=False");
+            SqlConnection con = new SqlConnection(@"Data Source=people-db.database.windows.net;Initial Catalog=People-DB;User Id=bodo;Password=Peopledb123;Pooling=False");
             SqlCommand cmd = new SqlCommand("select FirstName, LastName, Department from Employees", con);
             SqlDataAdapter ad = new SqlDataAdapter(cmd);
             con.Open();
