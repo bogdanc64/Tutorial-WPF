@@ -22,9 +22,22 @@ namespace ExpenseIt.Models
                 throw new Exception("Invalid connection string");
             }
 
-            var datesql = con.Query<Persons>("select FirstName, LastName, Department from Employees").ToList();
-            //datesql = AddNewPerson(datesql);
+            try
+            {
+                con.Open();
+            }
+            catch (Exception)
+            {
+                throw new Exception("DataBase not found / Invalid credentials");
+            }
+
+            string cmdText = "Select FirstName, LastName, Department from Employees";
+            var datesql = con.Query<Persons>(cmdText).ToList();
+            datesql = AddNewPerson(datesql);
+
+            con.Close();
             return datesql;
+
         }
         /* Persons newPerson = new Persons
             {

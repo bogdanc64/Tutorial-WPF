@@ -7,6 +7,6 @@ namespace ExpenseIt.Models
 {
     public class ConnectionString
     {
-        public static string connstring { get; set; } = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PeopleDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public static string Text { get; set; } = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PeopleDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
     }
 }

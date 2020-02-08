@@ -20,7 +20,7 @@ namespace ExpenseIt
         public ExpenseReportPage(object data):this()
         {
             AccessDatabase adb = new AccessDatabase();
-            DataGrid.DataContext = adb.GetExpenses(ConnectionString.connstring);
+            DataGrid.DataContext = adb.GetExpenses(ConnectionString.Text);
             this.DataContext = data;
         }
     }

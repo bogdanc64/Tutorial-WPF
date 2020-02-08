@@ -17,7 +17,7 @@ namespace ExpenseIt
         {
             InitializeComponent();
             AccessDatabase adb = new AccessDatabase();
-            People = adb.GetPersons(ConnectionString.connstring);
+            People = adb.GetPersons(ConnectionString.Text);
             peopleListBox.ItemsSource = People;
         }
 
