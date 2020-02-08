@@ -46,34 +46,19 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
-            </Grid.RowDefinitions> 
+            </Grid.RowDefinitions>
 
-         
-            <!-- Name -->
-            <!--<StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Orientation="Horizontal"  >
-                <Label Style="{StaticResource labelStyle}">Name:</Label>
-                <Label Style="{StaticResource labelStyle}" Content="{Binding FirstName}"></Label>
-                <Label Style="{StaticResource labelStyle}" Content="{Binding LastName}" Margin="-5,0,0,0"></Label>
-            </StackPanel>-->
 
-            <!-- Department -->
-            <!--<StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Orientation="Horizontal">
-                <Label Style="{StaticResource labelStyle}">Department:</Label>
-                <Label Style="{StaticResource labelStyle}" Content="{Binding Department}"></Label>
-            </StackPanel>-->
-
-            
-                <Viewbox StretchDirection="Both">
-                    <TextBlock HorizontalAlignment="Left" Padding="0" Margin="0">
+            <Viewbox StretchDirection="Both">
+                <TextBlock HorizontalAlignment="Left" Padding="0" Margin="0">
                             <Label Style="{StaticResource labelStyle}" Padding="0">Name:</Label>
                             <Label Style="{StaticResource labelStyle}" Padding="0" Content="{Binding FullName}"></Label>
                             <LineBreak/>
                             <Label Style="{StaticResource labelStyle}" Padding="0">Department:</Label>
                             <Label Style="{StaticResource labelStyle}" Content="{Binding Department}" Padding="0"></Label>
-                    </TextBlock>
-                </Viewbox>
-                
-            
+                </TextBlock>
+            </Viewbox>
+
 
             <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left">
 

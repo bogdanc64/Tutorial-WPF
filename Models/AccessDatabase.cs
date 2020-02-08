@@ -8,17 +8,42 @@ using System.Data;
 
 namespace ExpenseIt.Models
 {
-    class AccessDatabase
+    public class AccessDatabase
     {
-        public static List<Persons> GetPersons()
+        public List<Persons> GetPersons(string connString)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=people-db.database.windows.net;Initial Catalog=People-DB;User Id=bodo;Password=Peopledb123;Pooling=False");
+            SqlConnection con;
+            try
+            {
+                con = new SqlConnection(connString);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Invalid connection string");
+            }
+
             var datesql = con.Query<Persons>("select FirstName, LastName, Department from Employees").ToList();
+            //datesql = AddNewPerson(datesql);
             return datesql;
         }
-        public static DataSet GetExpenses()
+        /* Persons newPerson = new Persons
+            {
+                FirstName = "Bogdan",
+                Department = "CNMK"
+            };*/
+        public List<Persons> AddNewPerson(List<Persons> datesql)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=people-db.database.windows.net;Initial Catalog=People-DB;User Id=bodo;Password=Peopledb123;Pooling=False");
+            Persons newPerson = new Persons
+            {
+                FirstName = "Bogdan",
+                Department = "CNMK"
+            };
+            datesql.Add(newPerson);
+            return datesql;
+        }
+        public DataSet GetExpenses(string connString)
+        {
+            SqlConnection con = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand("Select ExpenseType, Amount, Employee_ID from Expenses where Employee_ID = @index", con);
             var index = cmd.Parameters.AddWithValue("@index",Persons.IndexListBox+1);
             SqlDataAdapter ad = new SqlDataAdapter(cmd);

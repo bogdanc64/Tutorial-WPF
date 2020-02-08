@@ -76,7 +76,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BaseViewModel.cs" />
     <Compile Include="Models\AccessDatabase.cs" />
+    <Compile Include="Models\ConnectionString.cs" />
     <Compile Include="Models\Expenses.cs" />
     <Compile Include="Models\Persons.cs" />
     <Compile Include="PeopleDB.designer.cs">

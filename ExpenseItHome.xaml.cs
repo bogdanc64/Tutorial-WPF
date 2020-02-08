@@ -12,24 +12,28 @@ namespace ExpenseIt
     /// </summary>
     public partial class ExpenseItHome : Page
     {
-        private readonly List<Persons> People;
+        private List<Persons> People;
         public ExpenseItHome()
         {
             InitializeComponent();
-            People = AccessDatabase.GetPersons();
+            AccessDatabase adb = new AccessDatabase();
+            People = adb.GetPersons(ConnectionString.connstring);
             peopleListBox.ItemsSource = People;
         }
 
         private void PeopleListBox_GotFocus(object sender, RoutedEventArgs e)
         {
+            
             this.DataContext = this.peopleListBox.SelectedItem;
+            var nume = this.peopleListBox.SelectedItem as Persons;
             Persons.IndexListBox = peopleListBox.SelectedIndex;
+            System.Console.WriteLine(nume.FirstName);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // View Expense Report
-            ExpenseReportPage expenseReportPage = new ExpenseReportPage(this.peopleListBox.SelectedItem);
+            ExpenseReportPage expenseReportPage = new ExpenseReportPage(this.DataContext);
             this.NavigationService.Navigate(expenseReportPage);
         } 
 

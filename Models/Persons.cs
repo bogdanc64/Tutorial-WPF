@@ -6,7 +6,7 @@ using Dapper;
 
 namespace ExpenseIt.Models
 {
-    class Persons
+    public class Persons
     {
         public int ID { get; set; }
         public static int IndexListBox { get; set; }

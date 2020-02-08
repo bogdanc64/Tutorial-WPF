@@ -19,11 +19,10 @@ namespace ExpenseIt
         // Custom constructor to pass expense report data
         public ExpenseReportPage(object data):this()
         {
-            DataGrid.DataContext = AccessDatabase.GetExpenses();
+            AccessDatabase adb = new AccessDatabase();
+            DataGrid.DataContext = adb.GetExpenses(ConnectionString.connstring);
             this.DataContext = data;
         }
-
-
     }
   
 }
